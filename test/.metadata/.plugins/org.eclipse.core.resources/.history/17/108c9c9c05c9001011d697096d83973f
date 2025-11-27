@@ -1,0 +1,13 @@
+package com.react.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ShopController {
+	
+	@GetMapping("/")	
+	public String home() {
+		return "home";
+	}
+
+}

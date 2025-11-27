@@ -1,0 +1,19 @@
+package com.react.mvc.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.react.mvc.vo.Member;
+
+@Repository
+public class MemberDAO {
+	
+	@Autowired
+	SqlSessionTemplate sqlSession;
+	
+	public void insertMember(Member member) {
+		sqlSession.insert("memberMapper.insertMember",member);
+	}
+
+}

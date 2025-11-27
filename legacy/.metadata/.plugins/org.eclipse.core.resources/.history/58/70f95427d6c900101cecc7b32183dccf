@@ -1,0 +1,5 @@
+package com.react.mvc.service;
+
+public class MemberService {
+
+}

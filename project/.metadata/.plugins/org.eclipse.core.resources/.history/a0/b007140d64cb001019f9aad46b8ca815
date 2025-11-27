@@ -1,0 +1,11 @@
+spring.application.name=mes
+server.port=9500
+
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/xe   # 환경에 맞게 수정
+spring.datasource.username=MES_USR
+spring.datasource.password=1234
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+spring.jpa.hibernate.ddl-auto=update       # 필요에 맞게 none/create 등으로 조정
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true

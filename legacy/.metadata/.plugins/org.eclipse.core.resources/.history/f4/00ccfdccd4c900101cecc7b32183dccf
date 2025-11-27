@@ -1,0 +1,6 @@
+package com.react.mvc.dao;
+
+@Repository
+public class MemberDAO {
+
+}

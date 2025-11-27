@@ -1,0 +1,8 @@
+package com.react.mvc.vo;
+
+import lombok.Data;
+
+@Data
+public class Member {
+
+}

@@ -1,0 +1,15 @@
+package com.react.mvc.service;
+
+import org.springframework.stereotype.Service;
+
+import com.react.mvc.dao.MemberDAO;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class MemberService {
+	
+	private final MemberDAO memberDAO;
+
+}
