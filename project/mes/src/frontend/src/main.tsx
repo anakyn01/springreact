@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import "./assets/scss/style.scss";//리액트에 1:1 경로는 ./
+import "./assets/css/mes.scss";
 //부트스트랩에 기본 베이스 cdn
 import 'bootstrap/dist/css/bootstrap.min.css';
 /*

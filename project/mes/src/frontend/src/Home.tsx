@@ -1,31 +1,33 @@
+import {Container,Row,Col,Card,Button,Form} from 'react-bootstrap';
+
 const Home = () => {
     return(
         <>
-           <div className="container">
+           <Container>
 
         {/*} Outer Row*/}
-        <div className="row justify-content-center">
+        <Row className="justify-content-center">
 
-            <div className="col-xl-10 col-lg-12 col-md-9">
+            <Col className="col-xl-10 col-lg-12 col-md-9">
 
-                <div className="card o-hidden border-0 shadow-lg my-5">
-                    <div className="card-body p-0">
+                <Card className="card o-hidden border-0 shadow-lg my-5">
+                    <Card.Body className="p-0">
                         {/*} Nested Row within Card Body*/}
-                        <div className="row">
-                            <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div className="col-lg-6">
+                        <Row>
+                            <Col className="col-lg-6 d-none d-lg-block bg-login-image"></Col>
+                            <Col className="col-lg-6">
                                 <div className="p-5">
                                     <div className="text-center">
                                         <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <form className="user">
                                         <div className="form-group">
-                                            <input type="email" className="form-control form-control-user"
+                                            <Form.Control className="form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..."/>
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" className="form-control form-control-user"
+                                            <Form.Control type="password" className="form-control-user"
                                                 id="exampleInputPassword" placeholder="Password"/>
                                         </div>
                                         <div className="form-group">
@@ -35,35 +37,37 @@ const Home = () => {
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" className="btn btn-primary btn-user btn-block">
+                                        <Button className="btn-user btn-block" variant='primary'>
                                             Login
-                                        </a>
+                                        </Button>
+
+
                                         <hr/>
-                                        <a href="index.html" className="btn btn-google btn-user btn-block">
+                                        <a href="" className="btn btn-google btn-user btn-block">
                                             <i className="fab fa-google fa-fw"></i> Login with Google
                                         </a>
-                                        <a href="index.html" className="btn btn-facebook btn-user btn-block">
-                                            <i className="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        <a href="" className="btn btn-facebook btn-user btn-block">
+                                            <i className="fab fa-facebook-f fa-fw"></i> Login with Insta
                                         </a>
                                     </form>
                                     <hr/>
                                     <div className="text-center">
-                                        <a className="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a className="small" href="/forgot">패스워드가 기억나지 않나요?</a>
                                     </div>
                                     <div className="text-center">
-                                        <a className="small" href="register.html">Create an Account!</a>
+                                        <a className="small" href="/member">회원가입하기</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+         </Col>
+         </Row>
+         </Card.Body>
+         </Card>
 
-            </div>
+            </Col>
 
-        </div>
+        </Row>
 
-    </div>
+</Container>
 
         </>
     )
