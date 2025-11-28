@@ -11,7 +11,7 @@ declare global{
 }
 
 //성별 enum은 특별한 변수 대문자가 권장됨
-type Gender = 'MALE' | 'FEMALE' | 'OTHER' | "";
+type Gender = 'male' | 'female' | 'other' | "";
 
 //신상명세 필드명에 맞는 타입을 명시
 interface MemberForm{
@@ -217,7 +217,7 @@ return (
                       label="남성"
                       name="gender"
                       value="male"
-                      checked={form.gender === "MALE"}
+                      checked={form.gender === "male"}
                       onChange={handleGenderChange}
                     />
                     <Form.Check
@@ -226,7 +226,7 @@ return (
                       label="여성"
                       name="gender"
                       value="female"
-                      checked={form.gender === "FEMALE"}
+                      checked={form.gender === "female"}
                       onChange={handleGenderChange}  
                     />
                     <Form.Check
@@ -235,7 +235,7 @@ return (
                       label="기타"
                       name="gender"
                       value="other"
-                      checked={form.gender === "OTHER"}
+                      checked={form.gender === "other"}
                       onChange={handleGenderChange}  
                     />
                   </div>
