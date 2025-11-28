@@ -1,0 +1,25 @@
+package com.samsung.mes.member.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.samsung.mes.member.entity.Member;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+	Optional<Member> findByEmail(String email);
+
+}
+/*
+Repository = DB담당자
+Member 엔티티를 db에 저장 /조회/삭제 하는 일을 전담하는 계층
+*/
+
+
+
+
+
+
+
+
+

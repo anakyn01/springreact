@@ -1,0 +1,17 @@
+package com.samsung.mes.member.service;
+
+import org.springframework.stereotype.Service;
+
+import com.samsung.mes.member.repository.MemberRepository;
+
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class MemberService {
+	
+	private final MemberRepository memberRepository;
+
+}

@@ -1,0 +1,12 @@
+package com.samsung.mes.member.dto;
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class MemberRequest {
+
+}

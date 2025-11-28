@@ -1,0 +1,89 @@
+package com.samsung.mes.member.entity;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="MEMBER")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Member {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_member_id")
+	@SequenceGenerator(
+		name = "seq_member_id", sequenceName= "SEQ_MEMBER_ID", allocationSize=1		
+	)private Long id;
+/*
+타입	저장 가능 범위
+int	약 21억(2,147,483,647)
+long / Long	약 9 * 10^18 (거의 무제한 수준)
+
+왜 Long(래퍼 클래스)인가? long과 차이점?
+long	Long
+기본 타입(primitive)	클래스 타입(wrapper)
+null 저장 불가	null 가능 → DB에서 값 생성되기 전까지 null 형태로 존재 가능
+
+int는 범위가 작다 → 서비스가 커지면 위험
+Long은 훨씬 넓은 범위라 ID 중복 가능성이 사실상 없음
+@GeneratedValue 사용 시 값이 없을 수 있으므로 null 허용되는 Long 사용이 안전
+*/
+@Column(name = "FIRST_NAME")
+private String firstName;
+
+@Column(name = "LAST_NAME")
+private String lastName;
+
+@Column(name = "EMAIL", nullable=false, unique = true)
+private String email;
+
+@Column(name = "PASSWORD", nullable=false)
+private String password;
+
+@Enumerated(EnumType.STRING)
+@Column(name = "GENDER")
+private Gender gender;
+
+@Column(name = "COMPANY_NAME")
+private
+
+@Column(name = "POSITION")
+private
+
+@Column(name = "TEL")
+private
+
+@Column(name = "ADDRESS")
+private
+
+@Column(name = "DETAIL_ADDRESS")
+private
+
+@Column(name = "CREATED_AT")
+private
+
+@PrePersist
+public void prePersist() {
+	if(createdAt == null) {
+		createdAt = LocalDateTime.now();
+	}
+}
+
+
+}

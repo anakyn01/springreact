@@ -1,0 +1,46 @@
+package com.samsung.mes.member.service;
+
+import org.springframework.stereotype.Service;
+
+import com.samsung.mes.member.repository.MemberRepository;
+
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class MemberService {
+	
+	private final MemberRepository memberRepository;
+	
+	public Member register(MemberRequest req) {
+        // 1. 비밀번호 일치 검사
+        if (!req.getPassword().equals(req.getRepeatPassword())) {
+            throw new IllegalArgumentException("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+        }
+
+        // 2. 이메일 중복 검사
+        memberRepository.findByEmail(req.getEmail())
+                .ifPresent(m -> {
+                    throw new IllegalArgumentException("이미 가입된 이메일입니다.");
+                });
+
+        // 3. DTO -> Entity (Builder 이용)
+        Member member = Member.builder()
+                .firstName(req.getFirstName())
+                .lastName(req.getLastName())
+                .email(req.getEmail())
+                .password(req.getPassword()) // 실서비스에서는 암호화 필수
+                .gender(req.getGender())
+                .companyName(req.getCompanyName())
+                .position(req.getPosition())
+                .tel(req.getTel())
+                .address(req.getAddress())
+                .detailAddress(req.getDetailAddress())
+                .build();
+
+        return memberRepository.save(member);
+    }
+
+}

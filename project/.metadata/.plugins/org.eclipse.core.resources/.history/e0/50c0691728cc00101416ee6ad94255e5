@@ -1,0 +1,28 @@
+package com.samsung.mes.member.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.samsung.mes.member.entity.Member;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+	Optional<Member> findByEmail(String email);
+
+}
+/*
+Repository = DB담당자
+Member 엔티티를 db에 저장 /조회/삭제 하는 일을 전담하는 계층
+자 그리고 class가 아닌 인터페이스인 이유
+1) 구현체는 우리가 직접 만들지 않음
+2) Spring Data jpa가 실행ㅅ기점에 자동으로구현 클래스 만들어서 빈으로 등록
+*/
+
+
+
+
+
+
+
+
+

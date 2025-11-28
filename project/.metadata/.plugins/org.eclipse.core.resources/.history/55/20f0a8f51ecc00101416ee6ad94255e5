@@ -1,0 +1,10 @@
+package com.samsung.mes.member.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="MEMBER")
+public class Member {
+
+}
