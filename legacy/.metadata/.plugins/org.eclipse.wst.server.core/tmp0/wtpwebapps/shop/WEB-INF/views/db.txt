@@ -33,6 +33,7 @@ POSITION varchar2(100),
 TEL varchar2(20) not null,
 ADDRESS varchar2(200) not null,
 DETAIL_ADDRESS varchar2(200),
+Verify number default 0,
 REG_DATE date default sysdate
 );
 

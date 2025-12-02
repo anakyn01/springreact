@@ -1,8 +1,12 @@
 import {Button, Container, Form, Nav, 
   Navbar, NavDropdown, Offcanvas} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {useAuth} from '../AuthContext';
 
 const Header = () => {
+
+  const {user, logout} = useAuth();
+
     return(
         <>{/*React Fragment : 여러개의 컴포넌트를 하나의 부모요소로 묶기 위해 사용 */}
 {['sm'].map((expand) => (
@@ -42,17 +46,16 @@ expand={expand} : 각 반복에 맞는 반응형 설정
               <Nav.Link as={Link} to="/about">about</Nav.Link>
               <Nav.Link as={Link} to="/contact">contact</Nav.Link>
               {/*버튼에 2단 2depth는 드롭다운 */}
-              <NavDropdown
-              title="고객정보"
-              id={`offcanvasNavbar-expand-${expand}`}
+              <NavDropdown title="고객정보"id={`offcanvasNavbar-expand-${expand}`}
               >
-                 <NavDropdown.Item as={Link} to="/">작성자</NavDropdown.Item>
-                 <NavDropdown.Item as={Link} to="/">고객명</NavDropdown.Item>
-                 <NavDropdown.Divider/>
-                 <NavDropdown.Item as={Link} to="/">자택</NavDropdown.Item>
-                 <NavDropdown.Item as={Link} to="/">접수경로</NavDropdown.Item>
+<NavDropdown.Item as={Link} to="/">작성자</NavDropdown.Item>
               </NavDropdown>
-        </Nav> 
+{!user && (
+  <Nav.Link as={Link} to="/login">
+    로그인
+  </Nav.Link>
+)}              
+</Nav> 
         <Form className='d-flex'>
           <Form.Control
           type="search"
@@ -62,6 +65,21 @@ expand={expand} : 각 반복에 맞는 반응형 설정
           />
           <Button variant="outline-success">Search</Button>
         </Form>
+
+{user &&(
+  <div className="d-flex align-items-center">
+    <span className='me-2'>
+    {user.firstName} {user.lastName} 님 환영합니다  
+    </span>
+    <Button
+    variant='outline-secondary'
+    size="sm"
+    onClick={logout}
+    >
+    로그아웃
+    </Button>
+  </div>
+)}
       </Offcanvas.Body>
     
     </Navbar.Offcanvas>
@@ -81,3 +99,10 @@ expand={expand} : 각 반복에 맞는 반응형 설정
   </nav>
 */
 export default Header;
+/*
+<NavDropdown.Item as={Link} to="/">작성자</NavDropdown.Item>
+<NavDropdown.Item as={Link} to="/">고객명</NavDropdown.Item>
+<NavDropdown.Divider/>
+<NavDropdown.Item as={Link} to="/">자택</NavDropdown.Item>
+<NavDropdown.Item as={Link} to="/">접수경로</NavDropdown.Item>
+*/
